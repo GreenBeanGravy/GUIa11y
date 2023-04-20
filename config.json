@@ -1,0 +1,44 @@
+{
+  "sections": [
+    {
+      "name": "Main Menu",
+      "elements": [
+        {
+          "name": "Play",
+          "x": 100,
+          "y": 200
+        },
+        {
+          "name": "Settings",
+          "x": 200,
+          "y": 200
+        },
+        {
+          "name": "Exit",
+          "x": 300,
+          "y": 200
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "elements": [
+        {
+          "name": "Audio",
+          "x": 400,
+          "y": 300
+        },
+        {
+          "name": "Video",
+          "x": 500,
+          "y": 300
+        },
+        {
+          "name": "Controls",
+          "x": 600,
+          "y": 300
+        }
+      ]
+    }
+  ]
+}
