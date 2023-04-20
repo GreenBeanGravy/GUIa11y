@@ -1,2 +1,2 @@
 # FortniteA11y
-A tool that tries to add extra accessibility to the online game Fortnite for individuals who are blind or visually impaired.
+A tool that tries to add extra accessibility to the online game Fortnite for individuals who are blind or visually impaired. Currently, the tool does not function in game. This repository is currently here to allow me to push changes as they come out. This page will be properly updated in the future as I work towards the first release. If you end up reading this before I remove it in the first release, make sure to Watch this repository and Star it! This is a big project and you won't want to miss it.
