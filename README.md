@@ -25,28 +25,31 @@ This script helps visually impaired users navigate through the Fortnite user int
 ### Usage
 
 1. Install the required dependencies using pip:
-
-```bash
+```
 pip install accessible_output2 pyautogui keyboard opencv-python numpy
+```
 Run FortniteA11y.py:
-bash
-Copy code
+```
 python FortniteA11y.py
-editor.py
-This script provides a graphical interface for editing the config.json file, which stores information about sections and elements in the Fortnite user interface. Users can add, edit, and remove sections and elements using the editor.
+```
 
-Usage
+### Editor.py
+This script provides a graphical interface for editing the config.json file, which contains information about sections and elements in the Fortnite user interface. You can can add, edit, and remove sections and elements using the editor, or by directly modifying the config.json file.
+
+## Usage
+
 Run editor.py:
-bash
-Copy code
+
+```
 python editor.py
-Configuration
-The config.json file is used to store information about sections and elements in the Fortnite user interface. The file contains an array of sections, each with a name and an array of elements. Each element has a name, an X coordinate, and a Y coordinate.
+```
 
-Example:
+### Configuration
+The config.json file is used to store information about sections and elements in the Fortnite user interface. The file contains an array of sections, each with a name and an array of elements. Each element has a name, an X coordinate, and a Y coordinate stored within itself.
 
-json
-Copy code
+##Example:
+
+```
 {
   "sections": [
     {
@@ -81,3 +84,4 @@ Copy code
     }
   ]
 }
+```
