@@ -7,11 +7,11 @@ Below is a template I will be using for the future README:
 
 # FortniteA11y
 
-The project aims to make Fortnite more accessible for visually impaired users by providing screenreader output for the game's user interface. It consists of two main files: `FortniteA11y.py` and `editor.py`.
+The project aims to make Fortnite more accessible for visually impaired users by providing screenreader output for the game's user interface. It consists of two main files: `GUIa11y.py` and `editor.py`.
 
-## FortniteA11y.py
+## GUIa11y.py
 
-This script helps visually impaired users navigate through the Fortnite user interface by providing audio feedback for the selected elements. Users can navigate through sections and elements using the arrow keys. The script also takes screenshots and compares them to a library of images to provide context about the current game screen.
+This script helps visually impaired users navigate through the Fortnite (or any other games) user interface by providing audio feedback for the selected elements. Users can navigate through sections and elements using the arrow keys. The script also takes screenshots and compares them to a library of images to provide context about the current game screen.
 
 ### Dependencies
 
@@ -28,13 +28,13 @@ This script helps visually impaired users navigate through the Fortnite user int
 ```
 pip install accessible_output2 pyautogui keyboard opencv-python numpy
 ```
-Run FortniteA11y.py:
+Run GUIa11y.py:
 ```
-python FortniteA11y.py
+python GUIa11y.py
 ```
 
 ## Editor.py
-This script provides a graphical interface for editing the config.json file, which contains information about sections and elements in the Fortnite user interface. You can can add, edit, and remove sections and elements using the editor, or by directly modifying the config.json file.
+This script provides a graphical interface for editing the config.json file, which contains information about sections and elements in the Fortnite (or any other) user interface. You can can add, edit, and remove sections and elements using the editor, or by directly modifying the config.json file.
 
 ### Usage
 
@@ -45,7 +45,7 @@ python editor.py
 ```
 
 ## Configuration
-The config.json file is used to store information about sections and elements in the Fortnite user interface. The file contains an array of sections, each with a name and an array of elements. Each element has a name, an X coordinate, and a Y coordinate stored within itself.
+The config.json file is used to store information about sections and elements in the Fortnite (or any other) user interface. The file contains an array of sections, each with a name and an array of elements. Each element has a name, an X coordinate, and a Y coordinate stored within itself.
 
 ### Example:
 
