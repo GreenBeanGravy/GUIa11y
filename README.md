@@ -47,7 +47,7 @@ python editor.py
 ## Configuration
 The config.json file is used to store information about sections and elements in the Fortnite user interface. The file contains an array of sections, each with a name and an array of elements. Each element has a name, an X coordinate, and a Y coordinate stored within itself.
 
-###Example:
+### Example:
 
 ```
 {
