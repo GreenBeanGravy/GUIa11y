@@ -33,10 +33,10 @@ Run FortniteA11y.py:
 python FortniteA11y.py
 ```
 
-### Editor.py
+## Editor.py
 This script provides a graphical interface for editing the config.json file, which contains information about sections and elements in the Fortnite user interface. You can can add, edit, and remove sections and elements using the editor, or by directly modifying the config.json file.
 
-## Usage
+### Usage
 
 Run editor.py:
 
@@ -44,10 +44,10 @@ Run editor.py:
 python editor.py
 ```
 
-### Configuration
+## Configuration
 The config.json file is used to store information about sections and elements in the Fortnite user interface. The file contains an array of sections, each with a name and an array of elements. Each element has a name, an X coordinate, and a Y coordinate stored within itself.
 
-##Example:
+###Example:
 
 ```
 {
