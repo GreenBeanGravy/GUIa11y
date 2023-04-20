@@ -1,2 +1,4 @@
 accessible_output2==0.17.0
 pyautogui==0.9.53
+cv2
+numpy
