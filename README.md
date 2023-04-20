@@ -5,9 +5,9 @@ Currently, you can navigate the tkinter GUI window (though it's opacity is set t
 
 Below is a template I will be using for the future README:
 
-# Fortnite Audio Access Project
+# FortniteA11y
 
-This project aims to make Fortnite more accessible for visually impaired users by providing audio cues for the game's user interface. It consists of two main scripts: `FortniteA11y.py` and `editor.py`.
+The project aims to make Fortnite more accessible for visually impaired users by providing screenreader output for the game's user interface. It consists of two main files: `FortniteA11y.py` and `editor.py`.
 
 ## FortniteA11y.py
 
