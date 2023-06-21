@@ -1,17 +1,17 @@
 # GUIa11y
-A tool that tries to add universal accessibility to all GUIs alike for individuals who are blind or visually impaired. Currently, the tool is not set up for any specific GUI. This repository is currently here to allow me to push changes as they come out. This page will be properly updated in the future as I work towards the first release. I plan on using this to add GUI accessibility to the game Fortnite in the future.
+A tool that tries to add universal accessibility to all GUIs alike for individuals who are blind or visually impaired. Currently, the tool is not set up for any specific GUI. This tool helps visually impaired users navigate through a GUI by providing spoken feedback. You can navigate through sections and elements using the arrow keys. GUIa11y also can take a temporary screenshot of your screen, compare it to a library of images, and provide spoken feedback based on what part of a GUI it thinks you are on.
 
-Currently, you can navigate the tkinter GUI window (though it's opacity is set to 0.01 so it is practically invisible) using the arrow keys. The left and right arrow keys change between sections, and the up and down arrow keys change between the elements within those sections. An editor is provided that allows speedy editing of the config.json file, though it is not accessible yet. The config.json file can also be edited manually. The script outputs to NVDA, but also works even if no screen reader is open.
+An editor is provided that allows speedy editing of the config.json file, though it is not accessible yet. The script outputs to NVDA, but also works even if no screen reader is open. The Editor provides its own GUI for editing the config.json file faster. You can can add, edit, or remove sections and elements using the Editor, or by directly modifying the config.json file.
 
-Below is a template I will be using for the future README:
+# Keybinds
 
-# GUIa11y
-
-The project aims to make all GUIs alike accessible to visually impaired users by providing screenreader output. It consists of two main files: `GUIa11y.py` and `editor.py`.
-
-## GUIa11y.py
-
-This script helps visually impaired users navigate through a GUI by providing spoken feedback. You can navigate through sections and elements using the arrow keys. GUIa11y also can take a temporary screenshot of your screen, compare it to a library of images, and provide spoken feedback based on what part of a GUI it thinks you are on.
+- **Left Arrow Key**: Move to the previous section.
+- **Right Arrow Key**: Move to the next section.
+- **Up Arrow Key**: Move to the previous element in the current section.
+- **Down Arrow Key**: Move to the next element in the current section.
+- **Return Key / Space Bar**: Click the selected element.
+- **F6 Key**: Close the application.
+- **F7 Key**: Run image comparison (currently does nothing with no images in the image_library folder)
 
 ### Dependencies
 
@@ -31,17 +31,6 @@ pip install accessible_output2 pyautogui keyboard opencv-python numpy
 Run GUIa11y.py:
 ```
 py GUIa11y.py
-```
-
-## Editor.py
-The Editor provides its own GUI for editing the config.json file faster. You can can add, edit, or remove sections and elements using the Editor, or by directly modifying the config.json file.
-
-### Usage
-
-Run editor.py:
-
-```
-py editor.py
 ```
 
 ## Configuration
