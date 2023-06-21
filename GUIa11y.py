@@ -20,11 +20,11 @@ def update_elements_list(section_index):
         listbox_elements.insert(tk.END, element["name"])
 
 def take_screenshot():
-    if keyboard.is_pressed('F12'):
+    if keyboard.is_pressed('F7'):
         screenshot = pyautogui.screenshot()
         process_screenshot(screenshot)
         return False
-    elif keyboard.is_pressed('F7'):
+    elif keyboard.is_pressed('F6'):
         return True
     return False
 
@@ -48,7 +48,8 @@ def process_screenshot(screenshot):
                 best_match = filename
 
     if best_match:
-        output.speak(f"I think you are in {best_match}")
+        name_without_ext = os.path.splitext(best_match)[0]  # Remove the file extension
+        output.speak(f"You are in the {name_without_ext} menu.")
 
 def compare_images(image1, image2):
     err = np.sum((image1.astype("float") - image2.astype("float")) ** 2)
@@ -92,17 +93,42 @@ def read_selected_element():
     x, y = config["sections"][current_section]["elements"][selected_element]["x"], config["sections"][current_section]["elements"][selected_element]["y"]
     pyautogui.moveTo(x, y)
 
+# Function to click the element
 def click_element(event):
     selected_element = listbox_elements.curselection()
     if not selected_element:
         return
     selected_element = selected_element[0]
     element = config["sections"][current_section]["elements"][selected_element]
-    pyautogui.click(element["x"], element["y"])
+
+    # Minimize the Tkinter window before clicking
+    root.iconify()
+    
+    # Wait a little to ensure the Tkinter window has minimized
+    root.after(500, lambda: pyautogui.click(element["x"], element["y"]))
+
+    # Wait a little to ensure the click action has been performed before deiconifying the Tkinter window
+    root.after(1000, root.deiconify)
+
+    # Check if the element has a shortcut to another section
+    if "shortcut_section_index" in element:
+        root.after(1500, lambda: change_section_index(element["shortcut_section_index"]))
+
+    # Bring the window back into focus
+    root.after(2000, lambda: (root.lift(), root.focus_force(), listbox_elements.focus_set(), listbox_elements.selection_set(0)))
+
+def change_section_index(new_section_index):
+    global current_section
+    current_section = new_section_index
+    section_name = config["sections"][current_section]["name"]
+    output.speak(section_name)
+    update_elements_list(current_section)
+    listbox_elements.focus_set()
+    root.after(500, lambda: (listbox_elements.selection_set(0), read_selected_element()))
 
 # Create and configure the main window
 root = tk.Tk()
-root.title("Audio Access")
+root.title("GUI A11Y")
 root.geometry("500x300")
 
 frame_sections = tk.Frame(root)
@@ -110,13 +136,6 @@ frame_sections.pack(side=tk.LEFT, padx=10, pady=10)
 
 frame_elements = tk.Frame(root)
 frame_elements.pack(side=tk.LEFT, padx=10, pady=10)
-
-# Add section buttons
-section_buttons = []
-for section in config["sections"]:
-    button = tk.Button(frame_sections, text=section["name"], command=lambda s=section: update_elements_list(s["index"]))
-    button.pack(side=tk.TOP, padx=5, pady=5)
-    section_buttons.append(button)
 
 # Add elements listbox
 listbox_elements = tk.Listbox(frame_elements)
@@ -128,9 +147,28 @@ scrollbar_elements.pack(side=tk.LEFT, fill=tk.Y)
 listbox_elements.config(yscrollcommand=scrollbar_elements.set)
 scrollbar_elements.config(command=listbox_elements.yview)
 
+# Add section buttons
+section_buttons = []
+for section_index, section in enumerate(config["sections"]):
+    button = tk.Button(frame_sections, text=section["name"], command=lambda index=section_index: update_elements_list(index))
+    button.pack(side=tk.TOP, padx=5, pady=5)
+    section_buttons.append(button)
+
+# Manually trigger the command of the first button
+section_buttons[0].invoke()
+
+# Set focus to the elements listbox and select the first element
+listbox_elements.focus_set()
+root.after(500, lambda: listbox_elements.selection_set(0))
+
+# Speak the name of the first section and first element after a delay
+root.after(1000, lambda: output.speak(config["sections"][0]["name"]))
+root.after(1500, lambda: output.speak(config["sections"][0]["elements"][0]["name"]))
+
 # Set the initial section and update the elements list
 current_section = 0
 update_elements_list(current_section)
+
 
 # Bind arrow keys for navigation
 root.bind("<Left>", change_section)
@@ -140,8 +178,7 @@ root.bind("<Down>", change_element)
 root.bind("<Return>", click_element)
 root.bind("<space>", click_element)
 
-root.attributes('-alpha', 0.01)  # Make the window almost invisible, but still interactable
-
+# Run the main loop
 def main_loop():
     while True:
         root.update_idletasks()
@@ -149,5 +186,4 @@ def main_loop():
         if take_screenshot():
             break
 
-# Run the main loop
 main_loop()
