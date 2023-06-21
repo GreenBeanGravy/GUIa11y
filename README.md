@@ -1,6 +1,11 @@
 # GUIa11y
 A tool that tries to add universal accessibility to all GUIs alike for individuals who are blind or visually impaired. GUIa11y works by allowing users to create "elements" and "sections". Think of a section as a folder, with elements in that section being individual files (not literally). Each element has a name, an X coordinate, and a Y coordinate stored within itself. Each element acts as a macro that moves your mouse to the defined X and Y coordinates, invokes a left click, and refocuses the main window. It may not be as robust as something like Golden Cursor but I think it is still a useful tool.
 
+### TODO
+* Make keybinds easily customizable
+* Add the ability to change the level of opaque-ness of the tkinter window
+* Add a toggle for "Descriptive Speech" which would provide enhanced feedback through the screenreader on sections and elements
+
 # Keybinds
 - **Left Arrow Key**: Move to the previous section.
 - **Right Arrow Key**: Move to the next section.
@@ -9,7 +14,6 @@ A tool that tries to add universal accessibility to all GUIs alike for individua
 - **Return Key / Space Bar**: Click the selected element.
 - **F6 Key**: Close the application.
 - **F7 Key**: Run image comparison (currently does nothing with no images in the image_library folder)
-
 
 
 ### Dependencies
