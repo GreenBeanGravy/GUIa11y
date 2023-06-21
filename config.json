@@ -4,17 +4,17 @@
       "name": "Main Menu",
       "elements": [
         {
-          "name": "Play",
+          "name": "Placeholder",
           "x": 100,
           "y": 200
         },
         {
-          "name": "Settings",
+          "name": "Placeholder 2",
           "x": 200,
           "y": 200
         },
         {
-          "name": "Exit",
+          "name": "Placeholder 3",
           "x": 300,
           "y": 200
         }
@@ -24,17 +24,17 @@
       "name": "Settings",
       "elements": [
         {
-          "name": "Audio",
+          "name": "Placeholder",
           "x": 400,
           "y": 300
         },
         {
-          "name": "Video",
+          "name": "Placeholder 2",
           "x": 500,
           "y": 300
         },
         {
-          "name": "Controls",
+          "name": "Placeholder 3",
           "x": 600,
           "y": 300
         }
