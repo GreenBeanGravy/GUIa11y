@@ -1,5 +1,5 @@
 # GUIa11y
-A tool that tries to add universal accessibility to all GUIs alike for individuals who are blind or visually impaired. GUIa11y works by allowing users to create "elements" and "sections". Think of a section as a folder, with elements in that section being individual files (not literally). Each element has a name, an X coordinate, and a Y coordinate stored within itself. Each element acts as a macro that moves your mouse to the defined X and Y coordinates, invokes a left click, and refocuses the main window. It may not be as robust as something like Golden Cursor but I think it is still a useful too.
+A tool that tries to add universal accessibility to all GUIs alike for individuals who are blind or visually impaired. GUIa11y works by allowing users to create "elements" and "sections". Think of a section as a folder, with elements in that section being individual files (not literally). Each element has a name, an X coordinate, and a Y coordinate stored within itself. Each element acts as a macro that moves your mouse to the defined X and Y coordinates, invokes a left click, and refocuses the main window. It may not be as robust as something like Golden Cursor but I think it is still a useful tool.
 
 # Keybinds
 - **Left Arrow Key**: Move to the previous section.
