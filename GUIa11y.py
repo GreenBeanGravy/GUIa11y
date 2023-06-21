@@ -169,6 +169,7 @@ root.after(1500, lambda: output.speak(config["sections"][0]["elements"][0]["name
 current_section = 0
 update_elements_list(current_section)
 
+root.attributes('-alpha', 0.01)  # Make the window almost invisible, but still interactable
 
 # Bind arrow keys for navigation
 root.bind("<Left>", change_section)
