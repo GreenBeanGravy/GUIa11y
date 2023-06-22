@@ -1,12 +1,14 @@
 # GUIa11y
 A tool that tries to add universal accessibility to all GUIs alike for individuals who are blind or visually impaired. GUIa11y works by allowing users to create "elements" and "sections". Think of a section as a folder, with elements in that section being individual files (not literally). Each element has a name, an X coordinate, and a Y coordinate stored within itself. Each element acts as a macro that moves your mouse to the defined X and Y coordinates, invokes a left click, and refocuses the main window. It may not be as robust as something like Golden Cursor but I think it is still a useful tool.
 
+An editor is provided that allows speedy editing of the config.json file, which is now completely accessible! The editor outputs to NVDA, but also works even if no screen reader is open. The Editor provides its own GUI for editing the config.json file faster. You can can add, edit, or remove sections and elements using the Editor, or by directly modifying the config.json file. Currently the acessible editor does not support creating "shortcuts" but that hasn't been entirely introduced yet, stay tuned! :)
+
 ### TODO
 * Make keybinds easily customizable
 * Add the ability to change the level of opaque-ness of the tkinter window
 * Add a toggle for "Descriptive Speech" which would provide enhanced feedback through the screenreader on sections and elements
 
-# Keybinds
+# GUIa11y Keybinds
 - **Left Arrow Key**: Move to the previous section.
 - **Right Arrow Key**: Move to the next section.
 - **Up Arrow Key**: Move to the previous element in the current section.
@@ -15,6 +17,17 @@ A tool that tries to add universal accessibility to all GUIs alike for individua
 - **F6 Key**: Close the application.
 - **F7 Key**: Run image comparison (currently does nothing with no images in the image_library folder)
 
+# Editor Keybinds
+- **Left Arrow Key**: Move to the previous section.
+- **Right Arrow Key**: Move to the next section.
+- **Up Arrow Key**: Move to the previous element in the current section.
+- **Down Arrow Key**: Move to the next element in the current section.
+- **Space Bar**: Click the selected element.
+- **Enter**: Submit values when creating sections/elements.
+- **Tab**: Used to navigate the different text boxes when creating a new element.
+- **F5**: Creates a new section.
+- **F6**: Creates a new element in the currently selected section.
+- **F7**: Close the application.
 
 ### Dependencies
 
@@ -35,8 +48,6 @@ Run GUIa11y.py:
 ```
 py GUIa11y.py
 ```
-### Editor
-An editor is provided that allows speedy editing of the config.json file, though it is not accessible yet. The script outputs to NVDA, but also works even if no screen reader is open. The Editor provides its own GUI for editing the config.json file faster. You can can add, edit, or remove sections and elements using the Editor, or by directly modifying the config.json file.
 
 ## Configuration
 The config.json file is used to store information in the form of sections and elements. The config.json file contains an array of sections, each with a name and an array of elements.
