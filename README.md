@@ -14,7 +14,7 @@ An editor is provided that allows speedy editing of the config.json file, which 
 - **Up Arrow Key**: Move to the previous element in the current section.
 - **Down Arrow Key**: Move to the next element in the current section.
 - **Return Key / Space Bar**: Click the selected element.
-- **F6 Key**: Close the application.
+- **F6 Key**: Closes the script.
 - **F7 Key**: Run image comparison (currently does nothing with no images in the image_library folder)
 
 # Editor Keybinds
@@ -27,7 +27,8 @@ An editor is provided that allows speedy editing of the config.json file, which 
 - **Tab**: Used to navigate the different text boxes when creating a new element.
 - **F5**: Creates a new section.
 - **F6**: Creates a new element in the currently selected section.
-- **F7**: Close the application.
+- **F7**: Not been tested, supposed to create a new element using the current position of the mouse in the currently selected section.
+- **F8**: Closes the script.
 
 ### Dependencies
 
