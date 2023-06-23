@@ -39,7 +39,7 @@ An editor is provided that allows speedy editing of the config.json file, which 
 - OpenCV (cv2)
 - numpy
 
-### Usage
+## Usage
 
 1. Install the required dependencies using pip:
 ```
