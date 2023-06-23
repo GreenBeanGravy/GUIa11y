@@ -30,7 +30,7 @@ An editor is provided that allows speedy editing of the config.json file, which 
 - **F7**: Not been tested, supposed to create a new element using the current position of the mouse in the currently selected section.
 - **F8**: Closes the script.
 
-### Dependencies
+## Dependencies
 
 - Python 3.6 or later
 - accessible_output2
