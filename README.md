@@ -41,9 +41,13 @@ An editor is provided that allows speedy editing of the config.json file, which 
 
 ## Usage
 
-1. Install the required dependencies using pip:
+Install the required dependencies using pip:
 ```
 pip install accessible_output2 pyautogui keyboard opencv-python numpy
+```
+Alternatively, you can use the "requirements.txt" file:
+```
+pip install -r requirements.txt
 ```
 Run GUIa11y.py:
 ```
