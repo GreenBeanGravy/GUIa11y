@@ -151,6 +151,49 @@ def create_element():
     element_x_var.trace_add("write", speak_updated_text)
     element_y_var.trace_add("write", speak_updated_text)
 
+# Function to create a new element from the mouse position
+def create_element_from_mouse():
+    element_x, element_y = root.winfo_pointerxy()  # get mouse position
+
+    top = Toplevel(root)
+    top.title("Create Element")
+    top.focus_force()
+
+    element_name_var = StringVar()
+
+    def handle_enter(event):
+        process_element_creation(element_name_var.get(), str(element_x), str(element_y), top)
+
+    label_name = tk.Label(top, text="Enter the name for the new element:")
+    label_name.pack()
+    entry_name = Entry(top, textvariable=element_name_var)
+    entry_name.pack()
+    entry_name.focus_set()
+    entry_name.bind("<Return>", handle_enter)
+
+    def speak_element_name(event):
+        output.speak("Enter the name for the new element.")
+
+    def handle_escape(event):
+        output.speak("Canceled")
+        top.destroy()
+
+    top.bind("<Escape>", handle_escape)
+
+    entry_name.configure(textvariable=element_name_var)
+    entry_name.bind("<FocusIn>", speak_element_name)
+    entry_name.after(100, lambda: output.speak("Enter the name for the new element."))
+
+    def speak_updated_text(*args):
+        name = element_name_var.get()
+        if name.strip():
+            output.speak(f"Name: {name}")
+
+    element_name_var.trace_add("write", speak_updated_text)
+
+    # Event binding to speak the text in the text field of the section name
+    entry_name.bind("<KeyRelease>", lambda event: output.speak(entry_name.get()))
+
 # Function to process the creation of a new element
 def process_element_creation(element_name, element_x, element_y, top):
     if element_name and element_x and element_y:
@@ -198,6 +241,9 @@ def delete_selected():
                 read_selected_element()
             else:
                 current_section = None
+
+    # Call the autoselect_first_section function after an element or section is deleted
+    autoselect_first_section()
 
 # Function to confirm the deletion of an element/section
 def confirm_delete(item_type, item_name):
@@ -263,8 +309,11 @@ def read_selected_element():
         return
 
     selected_element = selected_element[0]
-    element_name = config["sections"][current_section]["elements"][selected_element]["name"]
-    output.speak(element_name)
+    element = config["sections"][current_section]["elements"][selected_element]
+    element_name = element["name"]
+    element_x = element["x"]
+    element_y = element["y"]
+    output.speak(f"{element_name}, X: {element_x}, Y: {element_y}")
 
 # Function to click the element
 def click_element(event):
