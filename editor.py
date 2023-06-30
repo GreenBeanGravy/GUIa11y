@@ -242,6 +242,7 @@ def delete_selected():
             listbox_elements.delete(0, tk.END)
             output.speak(f"Section deleted: {section_name}")
             save_config()
+            autoselect_first_section()
 
             if len(config["sections"]) > 0:
                 current_section = 0
@@ -250,9 +251,6 @@ def delete_selected():
                 read_selected_element()
             else:
                 current_section = None
-
-    # Call the autoselect_first_section function after an element or section is deleted
-    autoselect_first_section()
 
 # Function to confirm the deletion of an element/section
 def confirm_delete(item_type, item_name):
