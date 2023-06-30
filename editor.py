@@ -69,7 +69,7 @@ def process_section_creation(section_name, top):
         # Auto select the new section and its first element after it is added
         autoselect_last_section()
 
-        root.after(100, lambda: output.speak(f"New section created: {section_name}"))
+        root.after(100, lambda: output.speak(f"New section created: {section_name}, section '{section_name}' selected"))
 
     else:
         messagebox.showerror("Error", "Missing section name")
@@ -216,7 +216,7 @@ def process_element_creation(element_name, element_x, element_y, top):
             update_elements_list(current_section)
             listbox_elements.selection_set(0)
             read_selected_element()
-            root.after(100, lambda: output.speak(f"New element created: {element_name}"))
+            root.after(100, lambda: output.speak(f"New element created: {element_name}, element '{element_name}' selected"))
         except ValueError:
             messagebox.showerror("Error", "Invalid coordinate value")
             top.destroy()
