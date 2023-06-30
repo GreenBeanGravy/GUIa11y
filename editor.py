@@ -37,7 +37,6 @@ def create_section():
 
     def speak_section_name(event):
         output.speak("Enter the name for the new section.")
-
     def handle_escape(event):
         output.speak("Canceled")
         top.destroy()
@@ -64,9 +63,16 @@ def process_section_creation(section_name, top):
         section = {"name": section_name, "elements": []}
         config["sections"].append(section)
         update_section_buttons()
-        update_elements_list(len(config["sections"]) - 1)
         save_config()
-        output.speak(f"New section created: {section_name}")
+        top.destroy()
+
+        # Auto select the new section and its first element after it is added
+        autoselect_last_section()
+
+        root.after(100, lambda: output.speak(f"New section created: {section_name}"))
+
+    else:
+        messagebox.showerror("Error", "Missing section name")
         top.destroy()
 
 # Function to create a new element
@@ -206,11 +212,11 @@ def process_element_creation(element_name, element_x, element_y, top):
             config["sections"][current_section]["elements"].append(element)
             update_elements_list(current_section)
             save_config()
-            output.speak(f"New element created: {element_name}")
             top.destroy()
             update_elements_list(current_section)
             listbox_elements.selection_set(0)
             read_selected_element()
+            root.after(100, lambda: output.speak(f"New element created: {element_name}"))
         except ValueError:
             messagebox.showerror("Error", "Invalid coordinate value")
             top.destroy()
@@ -346,6 +352,15 @@ def autoselect_first_section():
     global current_section
     if len(config["sections"]) > 0:
         current_section = 0
+        update_elements_list(current_section)
+        listbox_elements.selection_set(0)
+        read_selected_element()
+
+# Function to auto-select the last section and its first element
+def autoselect_last_section():
+    global current_section
+    if len(config["sections"]) > 0:
+        current_section = len(config["sections"]) - 1
         update_elements_list(current_section)
         listbox_elements.selection_set(0)
         read_selected_element()
