@@ -8,6 +8,8 @@ import os
 with open("config.json") as file:
     config = json.load(file)
 
+current_section = None
+
 output = Auto()
 
 # Function to update the elements listbox
@@ -206,8 +208,15 @@ def process_element_creation(element_name, element_x, element_y, top):
             save_config()
             output.speak(f"New element created: {element_name}")
             top.destroy()
+            update_elements_list(current_section)
+            listbox_elements.selection_set(0)
+            read_selected_element()
         except ValueError:
             messagebox.showerror("Error", "Invalid coordinate value")
+            top.destroy()
+            update_elements_list(current_section)
+            listbox_elements.selection_set(0)
+            read_selected_element()
     else:
         messagebox.showerror("Error", "Missing input value")
 
