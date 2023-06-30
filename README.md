@@ -1,7 +1,7 @@
 # GUIa11y
 A tool that tries to add universal accessibility to all GUIs alike for individuals who are blind or visually impaired. GUIa11y works by allowing users to create "elements" and "sections". Think of a section as a folder, with elements in that section being individual files (not literally). Each element has a name, an X coordinate, and a Y coordinate stored within itself. Each element acts as a macro that moves your mouse to the defined X and Y coordinates, invokes a left click, and refocuses the main window.
 
-An editor is provided that allows speedy editing of the config.json file, which is now completely accessible! The editor outputs to NVDA, but also works even if no screen reader is open. The Editor provides its own GUI for editing the config.json file faster. You can can add, edit, or remove sections and elements using the Editor, or by directly modifying the config.json file. Currently the acessible editor does not support creating "shortcuts" but that hasn't been entirely introduced yet, stay tuned! :)
+An editor is provided that allows speedy editing of the config.json file, which is now completely accessible! The editor outputs to NVDA, but also works even if no screen reader is open. The Editor provides its own GUI for editing the config.json file faster. You can can add, edit, or remove sections and elements using the Editor, or by directly modifying the config.json file. Navigating between elements will speak the name of the currently selected element, alongside it's X and Y coordinate values. Currently the acessible editor does not support creating "shortcuts" but that hasn't been entirely introduced yet, stay tuned! :)
 
 ### TODO
 * Make keybinds easily customizable
@@ -27,7 +27,7 @@ An editor is provided that allows speedy editing of the config.json file, which 
 - **Tab**: Used to navigate the different text boxes when creating a new element.
 - **F5**: Creates a new section.
 - **F6**: Creates a new element in the currently selected section.
-- **F7**: Not been tested, supposed to create a new element using the current position of the mouse in the currently selected section.
+- **F7**: Creates a new element using the current position of the mouse in the currently selected section.
 - **F8**: Closes the script.
 
 ## Dependencies
